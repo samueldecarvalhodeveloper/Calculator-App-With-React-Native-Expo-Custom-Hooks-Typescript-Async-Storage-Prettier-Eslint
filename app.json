@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "calculator",
+    "slug": "calculator",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./src/assets/imgs/app_icons/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/imgs/splash_screen/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.samuelcarvalhodeveloper.calculator"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/imgs/app_icons/adaptive_icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.samuelcarvalhodeveloper.calculator"
+    },
+    "web": {
+      "favicon": "./src/assets/imgs/app_icons/favicon.png"
+    }
+  }
+}
