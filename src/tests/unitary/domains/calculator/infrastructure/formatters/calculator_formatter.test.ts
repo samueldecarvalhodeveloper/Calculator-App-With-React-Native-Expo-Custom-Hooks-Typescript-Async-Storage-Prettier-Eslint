@@ -15,4 +15,3 @@ describe('Test Class: "CalculatorFormatter"; Behavior', () => {
     expect(formattedString).toEqual(STRING_WITHOUT_LAST_CHARACTER);
   });
 });
-CalculatorFormatter;
