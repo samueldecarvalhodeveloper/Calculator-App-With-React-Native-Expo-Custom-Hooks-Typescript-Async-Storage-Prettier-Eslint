@@ -31,5 +31,3 @@ describe('Test Class: "CalculationResultSubscriptionManagerDecoratorFactory"; Be
     expect(subscribedVariable).toEqual(initialValue);
   });
 });
-
-CalculationResultSubscriptionManagerDecoratorFactory;
