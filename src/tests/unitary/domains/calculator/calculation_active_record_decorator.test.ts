@@ -69,5 +69,3 @@ describe('Test Class: "CalculationActiveRecord"; Behavior', () => {
     );
   });
 });
-
-CalculationActiveRecord;
