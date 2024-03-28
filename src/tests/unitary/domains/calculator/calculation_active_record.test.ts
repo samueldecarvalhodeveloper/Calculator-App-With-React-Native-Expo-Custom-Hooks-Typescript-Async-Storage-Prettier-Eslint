@@ -64,5 +64,3 @@ describe('Test Class: "CalculationActiveRecord"; Behavior', () => {
     expect(currentCalculationResultValue).toEqual(CalculatorCharacters.TWO);
   });
 });
-
-CalculationActiveRecord;
