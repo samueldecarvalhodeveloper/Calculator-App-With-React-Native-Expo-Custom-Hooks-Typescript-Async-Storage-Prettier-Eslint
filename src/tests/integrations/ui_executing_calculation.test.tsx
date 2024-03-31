@@ -1,4 +1,4 @@
-import { describe, test, expect } from "@jest/globals";
+import { describe, beforeAll, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import { fireEvent } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
