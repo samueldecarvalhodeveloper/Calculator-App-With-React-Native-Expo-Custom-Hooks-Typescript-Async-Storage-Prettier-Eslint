@@ -67,7 +67,7 @@ See more:
 
 <ul>
   <li><a href="https://github.com/samuelcarvalhodeveloper/Pokedex-With-Next-Js-Typescript-Axios-Jest-React-Testing-Library-PHP-Laravel-Python-Django">Web Pokedex</a></li>
-  <li><a href="https://github.com/samuelcarvalhodeveloper/Calculator-w-React-Js-Redux-ToolKit-Typescript-Styled-Components-Prettier-Eslint-EditorConfig-Jest">Web Calculator</a></li>
+  <li><a href="[https://github.com/samuelcarvalhodeveloper/Calculator-w-React-Js-Redux-ToolKit-Typescript-Styled-Components-Prettier-Eslint-EditorConfig-Jest](https://github.com/samueldecarvalhodeveloper/Calculator-With-Next-Js-Nginx-Load-Balancer-Proxy-Server-Server-Side-Rendering-Typescript-Sass)">Web Calculator</a></li>
   <li><a href="https://github.com/samuelcarvalhodeveloper/Notes-App-With-React-Native-Expo-Custom-Hooks-Typescript-Sqlite3-Prettier-Eslint-EditorConfig-Jest">Notes App With React Native</a></li>
 </ul>
 
