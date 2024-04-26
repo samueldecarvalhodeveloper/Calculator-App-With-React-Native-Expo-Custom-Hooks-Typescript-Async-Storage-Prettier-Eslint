@@ -3,7 +3,7 @@ import CalculationResult from "../../../../domains/calculator/calculation_result
 import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
 describe('Test Class: "CalculationResult"; Behavior', () => {
-  test("Test If Class Represent How Calculation Result Value Show Be Accessed Correctly", () => {
+  test("Test If Class Represent How Calculation Result Value Should Be Accessed Correctly", () => {
     const calculationResult: CalculationResult = new CalculationResult(
       EMPTY_STRING,
     );
