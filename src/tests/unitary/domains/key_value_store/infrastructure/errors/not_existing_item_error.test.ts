@@ -8,7 +8,7 @@ import {
 import { THEME_STORE_KEY } from "../../../../../../constants/ui_constants";
 
 describe('Test Class: "NotExistingItemError"; Behavior', () => {
-  test("Test If Error Describes How Should A Not Existing Item Error Correctly", () => {
+  test("Test If Error Describes How Should A Not Existing Item Error Be Used By The System Correctly", () => {
     const error: Error = new NotExistingItemError(THEME_STORE_KEY);
 
     expect(error.name).toEqual(NOT_EXISTING_ITEM_ERROR_NAME);
