@@ -3,7 +3,7 @@ import { fireEvent, waitFor } from "@testing-library/react-native";
 import type { ReactTestInstance } from "react-test-renderer";
 import HomeScreen from "../../../screens/home/home_screen";
 import UiCalculatorCharacters from "../../../calculator_characters/ui_calculator_characters";
-import ReactRenderAdapter from "../../adapters/react_render_adapter";
+import ReactRenderAdapter from "../../concerns/react_render_adapter";
 import { ARRAY_FIRST_INDEX } from "../../constants/array_utilities_constants";
 import {
   ACTION_BAR_ELEMENT_TEST_ID,

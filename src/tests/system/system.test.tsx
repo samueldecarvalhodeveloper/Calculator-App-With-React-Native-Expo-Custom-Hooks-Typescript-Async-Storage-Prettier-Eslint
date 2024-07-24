@@ -2,7 +2,7 @@ import { describe, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import { fireEvent, waitFor } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
-import ReactRenderAdapter from "../adapters/react_render_adapter";
+import ReactRenderAdapter from "../concerns/react_render_adapter";
 import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_characters";
 import {
   ACTION_BAR_ELEMENT_TEST_ID,

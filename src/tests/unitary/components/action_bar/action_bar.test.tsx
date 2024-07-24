@@ -1,7 +1,7 @@
 import { describe, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import { fireEvent } from "@testing-library/react-native";
-import ReactRenderAdapter from "../../../adapters/react_render_adapter";
+import ReactRenderAdapter from "../../../concerns/react_render_adapter";
 import {
   ACTION_BAR_ELEMENT_TEST_ID,
   ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID,

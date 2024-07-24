@@ -7,7 +7,7 @@ import {
   ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID,
   VIEWFINDER_VALUE_ELEMENT_TEST_ID,
 } from "../../constants/screens/home_screen_constants";
-import ReactRenderAdapter from "../adapters/react_render_adapter";
+import ReactRenderAdapter from "../concerns/react_render_adapter";
 import HomeScreen from "../../screens/home/home_screen";
 import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_characters";
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";

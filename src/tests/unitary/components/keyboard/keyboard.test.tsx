@@ -1,6 +1,6 @@
 import { describe, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
-import ReactRenderAdapter from "../../../adapters/react_render_adapter";
+import ReactRenderAdapter from "../../../concerns/react_render_adapter";
 import Keyboard from "../../../../components/keyboard/keyboard";
 import Button from "../../../../components/button/button";
 import {

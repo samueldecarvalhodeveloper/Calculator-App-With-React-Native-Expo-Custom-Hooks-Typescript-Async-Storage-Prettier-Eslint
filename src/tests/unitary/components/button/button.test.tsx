@@ -1,7 +1,7 @@
 import { describe, test, expect } from "@jest/globals";
 import { fireEvent } from "@testing-library/react-native";
 import { ReactTestInstance } from "react-test-renderer";
-import ReactRenderAdapter from "../../../adapters/react_render_adapter";
+import ReactRenderAdapter from "../../../concerns/react_render_adapter";
 import Button from "../../../../components/button/button";
 import { GREATER_CALCULATOR_BUTTON_CHARACTER_FONT_SIZE } from "../../../../assets/dimensions";
 import UiCalculatorCharacters from "../../../../calculator_characters/ui_calculator_characters";

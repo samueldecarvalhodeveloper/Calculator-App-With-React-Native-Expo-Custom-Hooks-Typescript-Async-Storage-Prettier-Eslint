@@ -1,7 +1,7 @@
 import { describe, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import Viewfinder from "../../../../components/viewfinder/viewfinder";
-import ReactRenderAdapter from "../../../adapters/react_render_adapter";
+import ReactRenderAdapter from "../../../concerns/react_render_adapter";
 import { VIEWFINDER_VALUE_ELEMENT_TEST_ID } from "../../../../constants/screens/home_screen_constants";
 import PrimaryColors from "../../../../assets/colors/primary_colors";
 import NeutralColors from "../../../../assets/colors/neutral_colors";

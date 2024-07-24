@@ -2,7 +2,7 @@ import { describe, beforeAll, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import { waitFor } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
-import ReactRenderAdapter from "../adapters/react_render_adapter";
+import ReactRenderAdapter from "../concerns/react_render_adapter";
 import { VIEWFINDER_VALUE_ELEMENT_TEST_ID } from "../../constants/screens/home_screen_constants";
 import LastSessionCalculationResultStore from "../../last_session_calculation_result_store/last_session_calculation_result_store";
 import CalculatorCharacters from "../../domains/calculator/calculator_characters";

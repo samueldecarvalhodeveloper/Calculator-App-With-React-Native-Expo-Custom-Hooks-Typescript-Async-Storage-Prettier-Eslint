@@ -2,7 +2,7 @@ import { describe, beforeAll, test, expect } from "@jest/globals";
 import { ReactTestInstance } from "react-test-renderer";
 import { fireEvent } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
-import ReactRenderAdapter from "../adapters/react_render_adapter";
+import ReactRenderAdapter from "../concerns/react_render_adapter";
 import { VIEWFINDER_VALUE_ELEMENT_TEST_ID } from "../../constants/screens/home_screen_constants";
 import { ARRAY_FIRST_INDEX } from "../constants/array_utilities_constants";
 import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_characters";
