@@ -9,7 +9,7 @@ Calculator App With React Native, Expo, Custom Hooks, Typescript, Async Storage,
 <br/>
 
 <div align="center">
-  <a href="#description">Description</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#install">Install</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#technologies">Technologies</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#related">Related</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#contact">Contact</a>
+  <a href="#description">✍️ Description</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#install">🔍 Install</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#technologies">🚀 Technologies</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#related">♟️ Related</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp <a href="#contact">✉️ Contact</a>
 </div>
 
 <br />
@@ -21,7 +21,7 @@ Calculator App With React Native, Expo, Custom Hooks, Typescript, Async Storage,
 
 <br />
 
-<h3 id="install">🔍  Install:</h3>
+<h3 id="install">🔍 Install:</h3>
 
 <p>To use all projects environment, run the following commands:<p>
 
@@ -43,7 +43,7 @@ Calculator App With React Native, Expo, Custom Hooks, Typescript, Async Storage,
 
 <br />
 
-<h3 id="technologies">🚀  Technologies:</h3>
+<h3 id="technologies">🚀 Technologies:</h3>
 
 <p>To build this project is used:</p>
 
@@ -61,7 +61,7 @@ Calculator App With React Native, Expo, Custom Hooks, Typescript, Async Storage,
 
 <br />
 
-<h3 id="related">♟️  Related:</h3>
+<h3 id="related">♟️ Related:</h3>
 
 See more:
 
