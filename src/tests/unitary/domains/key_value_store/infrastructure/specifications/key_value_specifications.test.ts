@@ -9,7 +9,7 @@ import {
 import { EMPTY_STRING } from "../../../../../../constants/strings_utilities_constants";
 
 describe('Test Class: "KeyValueSpecifications"; Behavior', () => {
-  test('Test If Method: "isStringifiedDataFromStoreAnEmptyString"; Return True If Stringified Stored Data Is An Empty String Correctly', async () => {
+  test('Test If Method: "isStringifiedDataFromStoreAnEmptyString"; Returns True If Stringified Stored Data Is An Empty String Correctly', async () => {
     await KeyValueStore.setItem(LAST_CALCULATION_KEY, LAST_CALCULATION_VALUE);
 
     const stringifiedStoredData: string = (await AsyncStorage.getItem(

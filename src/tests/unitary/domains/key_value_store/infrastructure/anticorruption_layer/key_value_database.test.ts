@@ -22,7 +22,7 @@ describe('Test Class: "KeyValueDatabase"; Behavior', () => {
     expect(dataStoredInKeyValueDatabase).toEqual(LAST_CALCULATION_VALUE);
   });
 
-  test('Test If Method: "getKeyData"; Return The Stored Value From Key value Database Correctly', async () => {
+  test('Test If Method: "getKeyData"; Returns The Stored Value From Key value Database Correctly', async () => {
     await AsyncStorage.setItem(LAST_CALCULATION_KEY, LAST_CALCULATION_VALUE);
 
     const parsedJsonFromStoredData: StoreValue =

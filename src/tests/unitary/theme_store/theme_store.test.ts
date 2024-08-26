@@ -13,7 +13,7 @@ describe('Test Class: "ThemeStore"; Behavior', () => {
     expect(await KeyValueStore.getItem(THEME_STORE_KEY)).toEqual(Themes.DARK);
   });
 
-  test('Test If Method: "getTheme"; Return The Theme Stored On Key Value Database Correctly', async () => {
+  test('Test If Method: "getTheme"; Returns The Theme Stored On Key Value Database Correctly', async () => {
     const themeStore: ThemeStore = new ThemeStore();
 
     KeyValueStore.setItem(THEME_STORE_KEY, Themes.LIGHT);

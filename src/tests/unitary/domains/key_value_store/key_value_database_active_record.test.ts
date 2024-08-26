@@ -26,7 +26,7 @@ describe('Test Class: "KeyValueDatabaseActiveRecord"; Behavior', () => {
     expect(parsedJsonFromStoredData.data).toEqual(LAST_CALCULATION_VALUE);
   });
 
-  test('Test If Method: "getKeyData"; Return The Stored Value From Key value Database Correctly', async () => {
+  test('Test If Method: "getKeyData"; Returns The Stored Value From Key value Database Correctly', async () => {
     const storeDataToBeStored: StoreDataEntity =
       StoreDataEntityFactory.getInstance(LAST_CALCULATION_VALUE);
     const storeDataToBeStoredJsonStringified: string =
