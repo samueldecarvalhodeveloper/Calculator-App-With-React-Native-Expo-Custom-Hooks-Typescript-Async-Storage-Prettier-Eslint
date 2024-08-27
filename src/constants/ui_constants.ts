@@ -13,8 +13,8 @@ export const NO_ELEVATION: ElevationLevels = 0;
 
 export const DARK_DEVICE_THEME: string = "dark";
 
-export const LAST_SESSION_CALCULATION_RESULT_STORE_KEY: string =
-  "last_session_calculation_result";
+export const LAST_SESSION_CALCULATION_EXPRESSION_STORE_KEY: string =
+  "last_session_calculation_expression";
 
 export const EXTRA_SMALL_WINDOW_HEIGHT: number = 576;
 

@@ -1,61 +1,35 @@
-import CalculationActiveRecord from "./calculation_active_record";
-import CalculationSubscriber from "./calculation_subscriber";
-import CalculationResultSubscriptionManager from "./calculation_result_subscription_manager";
+import CalculationExpressionActiveRecord from "./calculation_expression_active_record";
 import CalculatorCharacters from "./calculator_characters";
-import PublishingCalculationResultAdapter from "./publishing_calculation_result_adapter";
 
 class Calculator {
-  private calculationActiveRecord: CalculationActiveRecord;
+  private readonly calculationExpressionActiveRecord: CalculationExpressionActiveRecord;
 
-  private calculationResultSubscriptionManager: CalculationResultSubscriptionManager;
-
-  constructor(
-    calculationActiveRecord: CalculationActiveRecord,
-    calculationResultSubscriptionManager: CalculationResultSubscriptionManager,
+  public constructor(
+    calculationExpressionActiveRecord: CalculationExpressionActiveRecord,
   ) {
-    this.calculationActiveRecord = calculationActiveRecord;
-    this.calculationResultSubscriptionManager =
-      calculationResultSubscriptionManager;
+    this.calculationExpressionActiveRecord = calculationExpressionActiveRecord;
   }
 
-  public subscribe(calculationSubscriber: CalculationSubscriber): void {
-    this.calculationResultSubscriptionManager.subscribe(calculationSubscriber);
-  }
-
-  public backspace(): void {
-    this.calculationActiveRecord.removeLastCharacter();
-
-    PublishingCalculationResultAdapter.updateCalculationResult(
-      this.calculationActiveRecord,
-      this.calculationResultSubscriptionManager,
-    );
-  }
-
-  public clean(): void {
-    this.calculationActiveRecord.removeAllCharacters();
-
-    PublishingCalculationResultAdapter.updateCalculationResult(
-      this.calculationActiveRecord,
-      this.calculationResultSubscriptionManager,
-    );
+  public getExpression(): string {
+    return this.calculationExpressionActiveRecord.getCalculationExpression();
   }
 
   public addCharacter(character: CalculatorCharacters): void {
-    this.calculationActiveRecord.addCharacter(character);
-
-    PublishingCalculationResultAdapter.updateCalculationResult(
-      this.calculationActiveRecord,
-      this.calculationResultSubscriptionManager,
+    this.calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      character,
     );
   }
 
-  public evaluate(): void {
-    this.calculationActiveRecord.evaluateCalculationResultExpression();
+  public backspace(): void {
+    this.calculationExpressionActiveRecord.removeLastCharacterFromCalculationExpression();
+  }
 
-    PublishingCalculationResultAdapter.updateCalculationResult(
-      this.calculationActiveRecord,
-      this.calculationResultSubscriptionManager,
-    );
+  public clean(): void {
+    this.calculationExpressionActiveRecord.turnCalculationExpressionEmpty();
+  }
+
+  public evaluate(): void {
+    this.calculationExpressionActiveRecord.evaluateCalculationExpression();
   }
 }
 

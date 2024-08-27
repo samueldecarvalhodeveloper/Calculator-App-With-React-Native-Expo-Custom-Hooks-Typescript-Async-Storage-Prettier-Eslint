@@ -4,7 +4,7 @@ import { waitFor } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
 import ReactRenderAdapter from "../concerns/react_render_adapter";
 import { VIEWFINDER_VALUE_ELEMENT_TEST_ID } from "../../constants/screens/home_screen_constants";
-import LastSessionCalculationResultStore from "../../last_session_calculation_result_store/last_session_calculation_result_store";
+import LastSessionCalculationResultStore from "../../last_session_calculation_expression_store/last_session_calculation_expression_store";
 import CalculatorCharacters from "../../domains/calculator/calculator_characters";
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE } from "../../constants/device_utilities_constants";

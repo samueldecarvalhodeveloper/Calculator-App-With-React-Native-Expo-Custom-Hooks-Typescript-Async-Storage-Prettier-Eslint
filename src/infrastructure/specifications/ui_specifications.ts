@@ -1,6 +1,6 @@
 import Themes from "../../assets/themes";
 import { DEVICE_IOS_OPERATING_SYSTEM } from "../../constants/device_utilities_constants";
-import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../constants/domains/calculator/calculation_result_messages_constants";
+import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../constants/domains/calculator/calculation_expression_messages_constants";
 import {
   ENGLISH_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE,
   FRENCH_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE,
@@ -35,25 +35,25 @@ function isDeviceOperationSystemIos(deviceOperationSystem: string): boolean {
   return deviceOperationSystem === DEVICE_IOS_OPERATING_SYSTEM;
 }
 
-function isCalculateResultNotValidExpressionMessage(
-  storedCalculationResult: string,
+function isCalculateExpressionNotValidExpressionMessage(
+  storedCalculationExpression: string,
 ): boolean {
-  return storedCalculationResult === NOT_VALID_EXPRESSION_ERROR_MESSAGE;
+  return storedCalculationExpression === NOT_VALID_EXPRESSION_ERROR_MESSAGE;
 }
 
-function isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage(
-  storedCalculationResult: string,
+function isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage(
+  storedCalculationExpression: string,
 ): boolean {
   return (
-    storedCalculationResult ===
+    storedCalculationExpression ===
       ENGLISH_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE ||
-    storedCalculationResult ===
+    storedCalculationExpression ===
       PORTUGUESE_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE ||
-    storedCalculationResult ===
+    storedCalculationExpression ===
       FRENCH_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE ||
-    storedCalculationResult ===
+    storedCalculationExpression ===
       SPANISH_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE ||
-    storedCalculationResult ===
+    storedCalculationExpression ===
       GERMAN_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE
   );
 }
@@ -64,6 +64,6 @@ export {
   isStoredThemeDark,
   isCurrentWindowHeightSmallerOrEqualThanExtraSmall,
   isDeviceOperationSystemIos,
-  isCalculateResultNotValidExpressionMessage,
-  isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage,
+  isCalculateExpressionNotValidExpressionMessage,
+  isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage,
 };

@@ -41,7 +41,7 @@ import {
 } from "../../assets/dimensions";
 import useCurrentWindowHeight from "../../hooks/use_current_window_height";
 import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_characters";
-import useCalculationResult from "../../hooks/use_calculation_result";
+import useCalculation from "../../hooks/use_calculation";
 import useTheme from "../../hooks/use_theme";
 import LanguageFactory from "../../ui_languages_specific_constants.ts/language_factory";
 import Languages from "../../ui_languages_specific_constants.ts/languages";
@@ -59,8 +59,8 @@ function HomeScreen(): JSX.Element {
     CALCULATOR_KEYBOARD_ELEMENT_ACCESSIBILITY_LABEL,
   } = LanguageFactory.getInstance(deviceLanguage);
 
-  const { addCharacter, backspace, calculationResult, clean, evaluate } =
-    useCalculationResult();
+  const { addCharacter, backspace, calculationExpression, clean, evaluate } =
+    useCalculation();
 
   const currentWindowHeight: number = useCurrentWindowHeight();
 
@@ -129,7 +129,7 @@ function HomeScreen(): JSX.Element {
         />
         <Viewfinder
           accessibilityLabel={CALCULATOR_VIEWFINDER_ELEMENT_ACCESSIBILITY_LABEL(
-            calculationResult,
+            calculationExpression,
           )}
           valueTestId={VIEWFINDER_VALUE_ELEMENT_TEST_ID}
           backgroundColor={
@@ -154,7 +154,7 @@ function HomeScreen(): JSX.Element {
               ? EXTRA_SMALL_CALCULATOR_VIEWFINDER_MARGIN_BOTTOM
               : GREATER_CALCULATOR_VIEWFINDER_MARGIN_BOTTOM
           }
-          value={calculationResult}
+          value={calculationExpression}
           valueFontSize={
             isCurrentWindowHeightSmallerOrEqualThanExtraSmall(
               currentWindowHeight,

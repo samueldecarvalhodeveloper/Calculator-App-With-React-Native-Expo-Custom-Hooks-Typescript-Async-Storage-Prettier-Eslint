@@ -1,40 +1,22 @@
-/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-
-import {
-  DIVISION_CHARACTER,
-  MULTIPLICATION_CHARACTER,
-  ADDITION_CHARACTER,
-  EIGHT_CHARACTER,
-  FIVE_CHARACTER,
-  FOUR_CHARACTER,
-  NINE_CHARACTER,
-  ONE_CHARACTER,
-  POINT_CHARACTER,
-  SEVEN_CHARACTER,
-  SIX_CHARACTER,
-  SUBTRACTION_CHARACTER,
-  THREE_CHARACTER,
-  TWO_CHARACTER,
-  ZERO_CHARACTER,
-} from "../../constants/domains/calculator/calculator_character_values_constants";
+/* eslint-disable no-shadow */
 
 enum CalculatorCharacters {
-  DIVISION = DIVISION_CHARACTER,
-  MULTIPLICATION = MULTIPLICATION_CHARACTER,
-  SEVEN = SEVEN_CHARACTER,
-  EIGHT = EIGHT_CHARACTER,
-  NINE = NINE_CHARACTER,
-  ADDITION = ADDITION_CHARACTER,
-  FOUR = FOUR_CHARACTER,
-  FIVE = FIVE_CHARACTER,
-  SIX = SIX_CHARACTER,
-  SUBTRACTION = SUBTRACTION_CHARACTER,
-  ONE = ONE_CHARACTER,
-  TWO = TWO_CHARACTER,
-  THREE = THREE_CHARACTER,
-  ZERO = ZERO_CHARACTER,
-  POINT = POINT_CHARACTER,
+  DIVISION = "/",
+  MULTIPLICATION = "*",
+  SEVEN = "7",
+  EIGHT = "8",
+  NINE = "9",
+  ADDITION = "+",
+  FOUR = "4",
+  FIVE = "5",
+  SIX = "6",
+  SUBTRACTION = "-",
+  ONE = "1",
+  TWO = "2",
+  THREE = "3",
+  ZERO = "0",
+  POINT = ".",
 }
 
 export default CalculatorCharacters;

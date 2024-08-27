@@ -1,38 +1,25 @@
-import CalculationActiveRecord from "./calculation_active_record";
-import CalculationActiveRecordDecorator from "./calculation_active_record_decorator";
-import CalculationRegister from "./calculation_register";
-import CalculationResult from "./calculation_result";
-import CalculationResultSubscriptionManager from "./calculation_result_subscription_manager";
-import CalculationResultSubscriptionManagerDecorator from "./calculation_result_subscription_manager_decorator";
-import CalculationSubscriber from "./calculation_subscriber";
+import CalculationExpression from "./calculation_expression";
+import CalculationExpressionActiveRecordDecorator from "./calculation_expression_active_record_decorator";
+import CalculationExpressionRegister from "./calculation_expression_register";
 import Calculator from "./calculator";
 
 class CalculatorFactory {
   private static instance: Calculator | null = null;
 
-  protected constructor() {}
+  private constructor() {}
 
   public static getInstance(initialValue: string): Calculator {
     if (this.instance === null) {
-      const calculationResult: CalculationResult = new CalculationResult(
-        initialValue,
+      const calculationExpression = new CalculationExpression(initialValue);
+      const calculationExpressionRegister = new CalculationExpressionRegister(
+        calculationExpression,
       );
-      const calculationRegister: CalculationRegister = new CalculationRegister(
-        calculationResult,
-      );
-      const calculationActiveRecord: CalculationActiveRecord =
-        new CalculationActiveRecordDecorator(calculationRegister);
-      const listOfSubscriber: Array<CalculationSubscriber> = [];
-      const calculationSubscriptionManager: CalculationResultSubscriptionManager =
-        new CalculationResultSubscriptionManagerDecorator(
-          listOfSubscriber,
-          calculationActiveRecord,
+      const calculationExpressionActiveRecord =
+        new CalculationExpressionActiveRecordDecorator(
+          calculationExpressionRegister,
         );
 
-      this.instance = new Calculator(
-        calculationActiveRecord,
-        calculationSubscriptionManager,
-      );
+      this.instance = new Calculator(calculationExpressionActiveRecord);
     }
 
     return this.instance;

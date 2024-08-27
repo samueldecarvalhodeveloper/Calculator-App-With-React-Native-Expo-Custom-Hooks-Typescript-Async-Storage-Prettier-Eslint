@@ -5,8 +5,8 @@ import {
   isCurrentWindowHeightSmallerOrEqualThanExtraSmall,
   isDeviceOperationSystemIos,
   isStoredThemeDark,
-  isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage,
-  isCalculateResultNotValidExpressionMessage,
+  isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage,
+  isCalculateExpressionNotValidExpressionMessage,
 } from "../../../../infrastructure/specifications/ui_specifications";
 import Themes from "../../../../assets/themes";
 import {
@@ -22,7 +22,7 @@ import {
   DEVICE_IOS_OPERATING_SYSTEM,
   GERMAN_LANGUAGE,
 } from "../../../../constants/device_utilities_constants";
-import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../constants/domains/calculator/calculation_result_messages_constants";
+import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../constants/domains/calculator/calculation_expression_messages_constants";
 import UiCalculatorCharacters from "../../../../calculator_characters/ui_calculator_characters";
 import DeviceLanguageRetriever from "../../../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../constants/screens/home_screen_constants";
@@ -72,37 +72,37 @@ describe('Test Module: "ui_specifications"; Behavior', () => {
     ).toBeFalsy();
   });
 
-  test('Test If Function: "isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage"; Returns True If Stored Calculation Result Is Equals To Not Valid Expression Error Message on Device Language Correctly', () => {
+  test('Test If Function: "isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage"; Returns True If Stored Calculation Expression Is Equals To Not Valid Expression Error Message on Device Language Correctly', () => {
     const validExpression: string =
       UiCalculatorCharacters.ONE +
       UiCalculatorCharacters.ADDITION +
       UiCalculatorCharacters.ONE;
 
     expect(
-      isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage(
+      isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage(
         GERMAN_LANGUAGE_NOT_VALID_EXPRESSION_ERROR_MESSAGE,
       ),
     ).toBeTruthy();
     expect(
-      isCalculateResultNotValidExpressionMessageInAnyAppAvailableLanguage(
+      isCalculateExpressionNotValidExpressionMessageInAnyAppAvailableLanguage(
         validExpression,
       ),
     ).toBeFalsy();
   });
 
-  test('Test If Function: "isCalculateResultNotValidExpressionMessage"; Returns True If Stored Calculation Result Is Equals To Not Valid Expression Error Message Correctly', () => {
+  test('Test If Function: "isCalculateExpressionNotValidExpressionMessage"; Returns True If Stored Calculation Expression Is Equals To Not Valid Expression Error Message Correctly', () => {
     const validExpression: string =
       UiCalculatorCharacters.ONE +
       UiCalculatorCharacters.ADDITION +
       UiCalculatorCharacters.ONE;
 
     expect(
-      isCalculateResultNotValidExpressionMessage(
+      isCalculateExpressionNotValidExpressionMessage(
         NOT_VALID_EXPRESSION_ERROR_MESSAGE,
       ),
     ).toBeTruthy();
     expect(
-      isCalculateResultNotValidExpressionMessage(validExpression),
+      isCalculateExpressionNotValidExpressionMessage(validExpression),
     ).toBeFalsy();
   });
 });

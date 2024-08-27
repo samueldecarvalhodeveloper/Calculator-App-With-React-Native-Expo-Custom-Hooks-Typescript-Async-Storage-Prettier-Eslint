@@ -1,116 +1,101 @@
-import { describe, test, expect } from "@jest/globals";
-import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
+import { describe, beforeAll, beforeEach, test, expect } from "@jest/globals";
 import Calculator from "../../../../domains/calculator/calculator";
-import CalculationSubscriber from "../../../../domains/calculator/calculation_subscriber";
-import { Subscription } from "../../../../domains/calculator/infrastructure/environment/typescript/types";
-import CalculatorFactory from "../../../../domains/calculator/infrastructure/tests/factories/calculator_factory";
-import CalculationSubscriberFactory from "../../../../domains/calculator/calculation_subscriber_factory";
+import CalculationExpressionActiveRecord from "../../../../domains/calculator/calculation_expression_active_record";
+import CalculationExpression from "../../../../domains/calculator/calculation_expression";
+import CalculationExpressionRegister from "../../../../domains/calculator/calculation_expression_register";
+import CalculationExpressionActiveRecordDecorator from "../../../../domains/calculator/calculation_expression_active_record_decorator";
+import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
 import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
-describe('Test Class: "Calculator"; Behavior', () => {
-  test('Test If Method: "subscribe"; Subscribe Function To Calculation Result Publishing List Correctly', () => {
-    const initialCalculatorValue: string = CalculatorCharacters.ONE;
+describe('Test Class "Calculator" Behavior Correctly', () => {
+  let calculator: Calculator;
+  let calculationExpressionActiveRecord: CalculationExpressionActiveRecord;
 
-    const calculator: Calculator = CalculatorFactory.getInstance(
-      initialCalculatorValue,
-    );
+  beforeAll(() => {
+    const calculationExpression: CalculationExpression =
+      new CalculationExpression(EMPTY_STRING);
+    const calculationExpressionRegister: CalculationExpressionRegister =
+      new CalculationExpressionRegister(calculationExpression);
+    calculationExpressionActiveRecord =
+      new CalculationExpressionActiveRecordDecorator(
+        calculationExpressionRegister,
+      );
 
-    let subscribedVariable: string = EMPTY_STRING;
-    const subscription: Subscription = (currentCalculationResult: string) => {
-      subscribedVariable = currentCalculationResult;
-    };
-    const subscriber: CalculationSubscriber =
-      CalculationSubscriberFactory.getInstance(subscription);
-
-    calculator.subscribe(subscriber);
-
-    expect(subscribedVariable).toEqual(initialCalculatorValue);
+    calculator = new Calculator(calculationExpressionActiveRecord);
   });
 
-  test('Test If Method: "addCharacter"; Adds One Character To Calculation Result Correctly', () => {
-    const calculator: Calculator = CalculatorFactory.getInstance(EMPTY_STRING);
+  beforeEach(() => {
+    calculationExpressionActiveRecord.turnCalculationExpressionEmpty();
+  });
 
-    let subscribedVariable: string = EMPTY_STRING;
-    const subscription: Subscription = (currentCalculationResult: string) => {
-      subscribedVariable = currentCalculationResult;
-    };
-    const subscriber: CalculationSubscriber =
-      CalculationSubscriberFactory.getInstance(subscription);
+  test('Test If Method "getExpression" Returns Current Calculation Expression Correctly', () => {
+    const currentCalculationExpressionFromCalculationExpressionActiveRecord =
+      calculator.getExpression();
+    const currentCalculationExpressionFromCalculator =
+      calculator.getExpression();
 
-    calculator.subscribe(subscriber);
+    expect(currentCalculationExpressionFromCalculator).toEqual(
+      currentCalculationExpressionFromCalculationExpressionActiveRecord,
+    );
+  });
 
+  test('Test If Method "addCharacter" Adds Chose Character On Calculation Expression Correctly', () => {
     calculator.addCharacter(CalculatorCharacters.ONE);
 
-    expect(subscribedVariable).toEqual(CalculatorCharacters.ONE);
+    const currentCalculationExpression =
+      calculationExpressionActiveRecord.getCalculationExpression();
+
+    expect(currentCalculationExpression).toEqual(CalculatorCharacters.ONE);
   });
 
-  test('Test If Method: "clean"; Turns Calculator Calculation Result Expression An Empty Value Correctly', () => {
-    const calculatorInitialValue: string =
-      CalculatorCharacters.ONE +
-      CalculatorCharacters.ADDITION +
-      CalculatorCharacters.ONE;
-
-    const calculator: Calculator = CalculatorFactory.getInstance(
-      calculatorInitialValue,
+  test('Test If Method "backspace" Removes Last Character Of Calculation Expression Correctly', () => {
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
     );
-
-    let subscribedVariable: string = EMPTY_STRING;
-    const subscription: Subscription = (currentCalculationResult: string) => {
-      subscribedVariable = currentCalculationResult;
-    };
-    const subscriber: CalculationSubscriber =
-      CalculationSubscriberFactory.getInstance(subscription);
-
-    calculator.subscribe(subscriber);
-
-    calculator.clean();
-
-    expect(subscribedVariable).toEqual(EMPTY_STRING);
-  });
-
-  test('Test If Method: "backspace"; Removes Last Character From Calculation Result Expression Correctly', () => {
-    const calculatorInitialValue: string =
-      CalculatorCharacters.ONE + CalculatorCharacters.ADDITION;
-
-    const calculator: Calculator = CalculatorFactory.getInstance(
-      calculatorInitialValue,
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
     );
-
-    let subscribedVariable: string = EMPTY_STRING;
-    const subscription: Subscription = (currentCalculationResult: string) => {
-      subscribedVariable = currentCalculationResult;
-    };
-    const subscriber: CalculationSubscriber =
-      CalculationSubscriberFactory.getInstance(subscription);
-
-    calculator.subscribe(subscriber);
 
     calculator.backspace();
 
-    expect(subscribedVariable).toEqual(CalculatorCharacters.ONE);
+    const currentCalculationExpression =
+      calculationExpressionActiveRecord.getCalculationExpression();
+
+    expect(currentCalculationExpression).toEqual(CalculatorCharacters.ONE);
   });
 
-  test('Test If Method: "evaluate"; Evaluates Calculation Result Expression Correctly', () => {
-    const calculatorInitialValue: string =
-      CalculatorCharacters.ONE +
-      CalculatorCharacters.ADDITION +
-      CalculatorCharacters.ONE;
-
-    const calculator: Calculator = CalculatorFactory.getInstance(
-      calculatorInitialValue,
+  test('Test If Method "clean" Removes All Character From Calculation Expression Correctly', () => {
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
+    );
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
     );
 
-    let subscribedVariable: string = EMPTY_STRING;
-    const subscription: Subscription = (currentCalculationResult: string) => {
-      subscribedVariable = currentCalculationResult;
-    };
-    const subscriber: CalculationSubscriber =
-      CalculationSubscriberFactory.getInstance(subscription);
+    calculator.clean();
 
-    calculator.subscribe(subscriber);
+    const currentCalculationExpression =
+      calculationExpressionActiveRecord.getCalculationExpression();
+
+    expect(currentCalculationExpression).toEqual(EMPTY_STRING);
+  });
+
+  test('Test If Method "evaluate" Evaluates Calculation Expression Correctly', () => {
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
+    );
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ADDITION,
+    );
+    calculationExpressionActiveRecord.addCharacterToCalculationExpression(
+      CalculatorCharacters.ONE,
+    );
 
     calculator.evaluate();
 
-    expect(subscribedVariable).toEqual(CalculatorCharacters.TWO);
+    const currentCalculationExpression =
+      calculationExpressionActiveRecord.getCalculationExpression();
+
+    expect(currentCalculationExpression).toEqual(CalculatorCharacters.TWO);
   });
 });
