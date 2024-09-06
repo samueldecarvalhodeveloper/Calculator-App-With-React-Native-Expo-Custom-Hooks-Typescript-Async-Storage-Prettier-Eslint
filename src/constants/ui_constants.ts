@@ -21,3 +21,5 @@ export const EXTRA_SMALL_WINDOW_HEIGHT: number = 576;
 export const DEVICE_LIGHT_THEME: string = "light";
 
 export const HOME_ROUTER = "home";
+
+export const SIMPLE_CALCULATOR_CALCULATION_EXPRESSION = "1+1";
