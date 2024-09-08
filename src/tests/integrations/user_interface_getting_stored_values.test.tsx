@@ -33,7 +33,7 @@ describe('Test Integration Of: "Ui Getting Stored Values"; Behavior', () => {
     spyOnGetDeviceLanguageMethod.mockReturnValue(GERMAN_LANGUAGE);
   });
 
-  test("Test If I Make A Calculation On Ui Correctly", async () => {
+  test("Test If I Can Store Calculation Expression Correctly", async () => {
     const { getByTestId } = ReactRenderAdapter.render(<HomeScreen />);
 
     const viewFinderValueElement: ReactTestInstance = getByTestId(
