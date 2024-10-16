@@ -1,4 +1,3 @@
-import { EMPTY_STRING } from "../constants/strings_utilities_constants";
 import Calculator from "../domains/calculator/calculator";
 import CalculatorCharacters from "../domains/calculator/calculator_characters";
 
@@ -12,9 +11,7 @@ class CalculationExpressionReconciliationAdapter {
     calculator.clean();
 
     const listOfCalculationCharacters: Array<CalculatorCharacters> =
-      calculationExpressionExpression.split(
-        EMPTY_STRING,
-      ) as Array<CalculatorCharacters>;
+      calculationExpressionExpression.split("") as Array<CalculatorCharacters>;
 
     for (const character of listOfCalculationCharacters) {
       calculator.addCharacter(character);

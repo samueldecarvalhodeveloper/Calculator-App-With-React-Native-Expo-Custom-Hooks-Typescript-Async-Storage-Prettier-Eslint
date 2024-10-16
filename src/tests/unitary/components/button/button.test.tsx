@@ -8,14 +8,17 @@ import UiCalculatorCharacters from "../../../../calculator_characters/ui_calcula
 import SecondaryColors from "../../../../assets/colors/secondary_colors";
 import NeutralColors from "../../../../assets/colors/neutral_colors";
 import RippleEffectColors from "../../../../assets/colors/ripple_effect_colors";
-import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
+import { ENGLISH_THEME_TOGGLE_BUTTON_ELEMENT_ACCESSIBILITY_LABEL } from "../../../../constants/screens/home_screen_constants";
 
 describe('Test Component: "ActionBar"; Behavior', () => {
   test("Test If Elements Dispatches The On Press Event Function Correctly", () => {
-    let calculationResultExpression: string = EMPTY_STRING;
+    let calculationExpression: string = "";
 
     const { getByText } = ReactRenderAdapter.render(
       <Button
+        accessibilityLabel={
+          ENGLISH_THEME_TOGGLE_BUTTON_ELEMENT_ACCESSIBILITY_LABEL
+        }
         characterFontSize={GREATER_CALCULATOR_BUTTON_CHARACTER_FONT_SIZE}
         character={UiCalculatorCharacters.FIVE}
         backgroundColor={SecondaryColors.SECONDARY_500}
@@ -23,7 +26,7 @@ describe('Test Component: "ActionBar"; Behavior', () => {
         characterColor={NeutralColors.NEUTRAL_900}
         rippleColor={RippleEffectColors.LIGHT_THEME}
         onPress={() => {
-          calculationResultExpression = UiCalculatorCharacters.FIVE;
+          calculationExpression = UiCalculatorCharacters.FIVE;
         }}
       />,
     );
@@ -34,6 +37,6 @@ describe('Test Component: "ActionBar"; Behavior', () => {
 
     fireEvent.press(buttonElement);
 
-    expect(calculationResultExpression).toEqual(UiCalculatorCharacters.FIVE);
+    expect(calculationExpression).toEqual(UiCalculatorCharacters.FIVE);
   });
 });

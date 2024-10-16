@@ -9,7 +9,6 @@ import {
   ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID,
   VIEWFINDER_VALUE_ELEMENT_TEST_ID,
 } from "../../constants/screens/home_screen_constants";
-import { ARRAY_FIRST_INDEX } from "../constants/array_utilities_constants";
 import PrimaryColors from "../../assets/colors/primary_colors";
 import { GERMAN_LANGUAGE } from "../../constants/device_utilities_constants";
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";
@@ -66,7 +65,7 @@ describe("Test System Behavior", () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toBeFalsy();
+    expect(viewFinderValueElement.children.at(0)).toBeFalsy();
 
     const keyboardOneButtonElement: ReactTestInstance = getByText(
       UiCalculatorCharacters.ONE,
@@ -83,7 +82,7 @@ describe("Test System Behavior", () => {
     fireEvent.press(keyboardOneButtonElement);
     fireEvent.press(keyboardEvaluationButtonElement);
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
+    expect(viewFinderValueElement.children.at(0)).toEqual(
       UiCalculatorCharacters.TWO,
     );
 
@@ -93,6 +92,6 @@ describe("Test System Behavior", () => {
 
     fireEvent.press(keyboardCleanButtonElement);
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toBeFalsy();
+    expect(viewFinderValueElement.children.at(0)).toBeFalsy();
   });
 });

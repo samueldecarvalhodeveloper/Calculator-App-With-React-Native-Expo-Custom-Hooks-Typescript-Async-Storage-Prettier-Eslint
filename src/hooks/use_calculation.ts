@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CalculatorCharacters from "../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../constants/strings_utilities_constants";
 import CalculationExpressionUpdateAdapter from "../calculation_expression_update_adapter/calculation_expression_update_adapter";
 import Languages from "../ui_languages_specific_constants.ts/languages";
 import DeviceLanguageRecuperator from "../device_language_recuperator/device_language_recuperator";
@@ -20,13 +19,12 @@ function useCalculation(): {
   clean: () => void;
   evaluate: () => void;
 } {
-  const calculator: Calculator = CalculatorFactory.getInstance(EMPTY_STRING);
+  const calculator: Calculator = CalculatorFactory.getInstance("");
   const deviceLanguage: Languages =
     DeviceLanguageRecuperator.getDeviceLanguage();
   const { NOT_VALID_EXPRESSION_ERROR_MESSAGE } =
     LanguageFactory.getInstance(deviceLanguage);
-  const [calculationExpression, setCalculationExpression] =
-    useState(EMPTY_STRING);
+  const [calculationExpression, setCalculationExpression] = useState("");
 
   useEffect(() => {
     LastSessionCalculationExpressionStore.getExpression()

@@ -4,7 +4,6 @@ import { fireEvent } from "@testing-library/react-native";
 import HomeScreen from "../../screens/home/home_screen";
 import ReactRenderAdapter from "../concerns/react_render_adapter";
 import { VIEWFINDER_VALUE_ELEMENT_TEST_ID } from "../../constants/screens/home_screen_constants";
-import { ARRAY_FIRST_INDEX } from "../constants/array_utilities_constants";
 import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_characters";
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE } from "../../constants/device_utilities_constants";
@@ -28,7 +27,7 @@ describe('Test Integration Of: "Ui Executing Calculation"; Behavior', () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toBeFalsy();
+    expect(viewFinderValueElement.children.at(0)).toBeFalsy();
 
     const keyboardOneButtonElement: ReactTestInstance = getByText(
       UiCalculatorCharacters.ONE,
@@ -45,7 +44,7 @@ describe('Test Integration Of: "Ui Executing Calculation"; Behavior', () => {
     fireEvent.press(keyboardOneButtonElement);
     fireEvent.press(keyboardEvaluationButtonElement);
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
+    expect(viewFinderValueElement.children.at(0)).toEqual(
       UiCalculatorCharacters.TWO,
     );
 
@@ -55,6 +54,6 @@ describe('Test Integration Of: "Ui Executing Calculation"; Behavior', () => {
 
     fireEvent.press(keyboardCleanButtonElement);
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toBeFalsy();
+    expect(viewFinderValueElement.children.at(0)).toBeFalsy();
   });
 });

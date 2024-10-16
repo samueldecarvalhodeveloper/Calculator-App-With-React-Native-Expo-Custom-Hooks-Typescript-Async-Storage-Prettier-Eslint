@@ -2,7 +2,6 @@ import { describe, test, expect } from "@jest/globals";
 import CalculatorSpecifications from "../../../../../domains/calculator/infrastructure/calculator_specifications";
 import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../../constants/domains/calculator/calculation_expression_messages_constants";
 import CalculatorCharacters from "../../../../../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../../../../../constants/strings_utilities_constants";
 
 describe('Test Class "CalculatorSpecifications" Behavior', () => {
   test('Test If Method "isCalculationExpressionEqualToNotValidExpressionExceptionMessage" Returns True If Expression Is Equal To Not Valid Expression Exception Message Correctly', () => {
@@ -23,7 +22,7 @@ describe('Test Class "CalculatorSpecifications" Behavior', () => {
 
   test('Test If Method "isCalculationExpressionEmpty" Returns True If Calculation Expression Is Empty Correctly', () => {
     const calculationExpressionIsEmpty: boolean =
-      CalculatorSpecifications.isCalculationExpressionEmpty(EMPTY_STRING);
+      CalculatorSpecifications.isCalculationExpressionEmpty("");
     const calculationExpressionIsNotEmpty: boolean =
       CalculatorSpecifications.isCalculationExpressionEmpty(
         CalculatorCharacters.ONE +

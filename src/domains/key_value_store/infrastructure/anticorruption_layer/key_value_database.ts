@@ -1,7 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import KeyValueSpecifications from "../specifications/key_value_specifications";
 import NotExistingItemError from "../errors/not_existing_item_error";
-import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
 class KeyValueDatabase {
   private constructor() {}
@@ -12,7 +11,7 @@ class KeyValueDatabase {
 
   public static async getSelectedKeyData(key: string): Promise<string> {
     const dataFromKeyValueDatabase: string =
-      (await AsyncStorage.getItem(key)) ?? EMPTY_STRING;
+      (await AsyncStorage.getItem(key)) ?? "";
 
     if (
       KeyValueSpecifications.isStringifiedDataFromStoreAnEmptyString(

@@ -35,5 +35,6 @@ module.exports = {
     "global-require": 0,
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
+    "no-useless-return": 0,
   },
 };

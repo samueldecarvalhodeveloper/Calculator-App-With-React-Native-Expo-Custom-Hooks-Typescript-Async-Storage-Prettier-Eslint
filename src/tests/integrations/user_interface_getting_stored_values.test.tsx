@@ -8,7 +8,6 @@ import LastSessionCalculationResultStore from "../../last_session_calculation_ex
 import CalculatorCharacters from "../../domains/calculator/calculator_characters";
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE } from "../../constants/device_utilities_constants";
-import { ARRAY_FIRST_INDEX } from "../constants/array_utilities_constants";
 import { KEY_VALUE_STORE_ACTION_TIMEOUT } from "../constants/ui_constants";
 
 describe('Test Integration Of: "Ui Getting Stored Values"; Behavior', () => {
@@ -42,7 +41,7 @@ describe('Test Integration Of: "Ui Getting Stored Values"; Behavior', () => {
 
     waitFor(
       () => {
-        expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
+        expect(viewFinderValueElement.children.at(0)).toEqual(
           lastSessionCalculationExpression,
         );
       },

@@ -1,7 +1,6 @@
 import { describe, test, expect } from "@jest/globals";
 import CalculationExpressionReconciliationAdapter from "../../../calculation_expression_reconciliation_adapter/calculation_expression_reconciliation_adapter";
 import UiCalculatorCharacters from "../../../calculator_characters/ui_calculator_characters";
-import { EMPTY_STRING } from "../../../constants/strings_utilities_constants";
 import CalculatorFactory from "../../../domains/calculator/calculator_factory";
 import Calculator from "../../../domains/calculator/calculator";
 
@@ -12,7 +11,7 @@ describe('Test Class: "CalculationExpressionReconciliationAdapter"; Behavior', (
       UiCalculatorCharacters.ADDITION +
       UiCalculatorCharacters.ONE;
 
-    const calculator: Calculator = CalculatorFactory.getInstance(EMPTY_STRING);
+    const calculator: Calculator = CalculatorFactory.getInstance("");
 
     CalculationExpressionReconciliationAdapter.reconciliateCalculatorCalculationExpressionExpression(
       storedCalculationExpression,

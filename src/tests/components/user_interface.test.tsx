@@ -13,7 +13,6 @@ import UiCalculatorCharacters from "../../calculator_characters/ui_calculator_ch
 import DeviceLanguageRetriever from "../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE } from "../../constants/device_utilities_constants";
 import { KEY_VALUE_STORE_ACTION_TIMEOUT } from "../constants/ui_constants";
-import { ARRAY_FIRST_INDEX } from "../constants/array_utilities_constants";
 
 describe('Test Component: "User Interface"; Behavior', () => {
   beforeAll(() => {
@@ -91,7 +90,7 @@ describe('Test Component: "User Interface"; Behavior', () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
+    expect(viewFinderValueElement.children.at(0)).toEqual(
       UiCalculatorCharacters.TWO,
     );
 

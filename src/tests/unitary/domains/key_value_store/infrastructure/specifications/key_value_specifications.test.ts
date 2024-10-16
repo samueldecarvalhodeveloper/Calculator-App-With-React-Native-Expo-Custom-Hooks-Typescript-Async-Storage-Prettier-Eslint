@@ -6,7 +6,6 @@ import {
   LAST_CALCULATION_KEY,
   LAST_CALCULATION_VALUE,
 } from "../../../../../constants/key_value_store_constants";
-import { EMPTY_STRING } from "../../../../../../constants/strings_utilities_constants";
 
 describe('Test Class: "KeyValueSpecifications"; Behavior', () => {
   test('Test If Method: "isStringifiedDataFromStoreAnEmptyString"; Returns True If Stringified Stored Data Is An Empty String Correctly', async () => {
@@ -17,9 +16,7 @@ describe('Test Class: "KeyValueSpecifications"; Behavior', () => {
     )) as string;
 
     expect(
-      KeyValueSpecifications.isStringifiedDataFromStoreAnEmptyString(
-        EMPTY_STRING,
-      ),
+      KeyValueSpecifications.isStringifiedDataFromStoreAnEmptyString(""),
     ).toBeTruthy();
     expect(
       KeyValueSpecifications.isStringifiedDataFromStoreAnEmptyString(

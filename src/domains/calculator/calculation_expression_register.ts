@@ -21,11 +21,11 @@ class CalculationExpressionRegister {
   ): void {
     const currentCalculationExpression: string =
       this.calculationExpression.getCalculationExpression();
-    const calculationResultWithNewCharacter: string =
+    const calculationExpressionWithNewCharacter: string =
       currentCalculationExpression + calculatorCharacters;
 
     this.calculationExpression.setCalculationExpression(
-      calculationResultWithNewCharacter,
+      calculationExpressionWithNewCharacter,
     );
   }
 }

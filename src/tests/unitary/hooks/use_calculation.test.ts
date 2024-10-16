@@ -1,7 +1,6 @@
 import { describe, beforeAll, beforeEach, test, expect } from "@jest/globals";
 import { act, renderHook } from "@testing-library/react-native";
 import CalculatorCharacters from "../../../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../../../constants/strings_utilities_constants";
 import DeviceLanguageRetriever from "../../../infrastructure/anticorruption_layer/device_language_retriever";
 import { GERMAN_LANGUAGE } from "../../../constants/device_utilities_constants";
 import LanguageFactory from "../../../ui_languages_specific_constants.ts/language_factory";
@@ -12,7 +11,7 @@ import CalculatorFactory from "../../../domains/calculator/calculator_factory";
 import useCalculation from "../../../hooks/use_calculation";
 
 describe('Test Hook: "useCalculation"; Behavior', () => {
-  const calculator: Calculator = CalculatorFactory.getInstance(EMPTY_STRING);
+  const calculator: Calculator = CalculatorFactory.getInstance("");
 
   beforeAll(() => {
     const spyOnGetDeviceLanguageMethod = jest.spyOn(
@@ -73,7 +72,7 @@ describe('Test Hook: "useCalculation"; Behavior', () => {
 
     const currentCalculation: string = calculator.getExpression();
 
-    expect(currentCalculation).toEqual(EMPTY_STRING);
+    expect(currentCalculation).toEqual("");
   });
 
   test('Test If Method: "evaluate"; Evaluates Expression On Calculator Calculation Correctly', () => {

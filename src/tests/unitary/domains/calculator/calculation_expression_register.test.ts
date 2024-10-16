@@ -2,21 +2,20 @@ import { describe, beforeAll, beforeEach, test, expect } from "@jest/globals";
 import CalculationExpression from "../../../../domains/calculator/calculation_expression";
 import CalculationExpressionRegister from "../../../../domains/calculator/calculation_expression_register";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
 describe('Test Class "CalculationExpressionRegister" Behavior', () => {
   let calculationExpression: CalculationExpression;
   let calculationExpressionRegister: CalculationExpressionRegister;
 
   beforeAll(() => {
-    calculationExpression = new CalculationExpression(EMPTY_STRING);
+    calculationExpression = new CalculationExpression("");
     calculationExpressionRegister = new CalculationExpressionRegister(
       calculationExpression,
     );
   });
 
   beforeEach(() => {
-    calculationExpression.setCalculationExpression(EMPTY_STRING);
+    calculationExpression.setCalculationExpression("");
   });
 
   test('Test If Method "getCalculationExpression" Returns Current Calculation Expression Correctly', () => {

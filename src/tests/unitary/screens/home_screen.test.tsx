@@ -4,7 +4,6 @@ import type { ReactTestInstance } from "react-test-renderer";
 import HomeScreen from "../../../screens/home/home_screen";
 import UiCalculatorCharacters from "../../../calculator_characters/ui_calculator_characters";
 import ReactRenderAdapter from "../../concerns/react_render_adapter";
-import { ARRAY_FIRST_INDEX } from "../../constants/array_utilities_constants";
 import {
   ACTION_BAR_ELEMENT_TEST_ID,
   ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID,
@@ -28,7 +27,7 @@ describe('Test Screen: "Home"; Behavior', () => {
   test("Test If All Numerical Buttons Are Working Correctly", () => {
     const { getByText } = ReactRenderAdapter.render(<HomeScreen />);
 
-    const calculationResultExpressionWithAllAvailableNumbers: string =
+    const calculationExpressionWithAllAvailableNumbers: string =
       UiCalculatorCharacters.ZERO +
       UiCalculatorCharacters.ONE +
       UiCalculatorCharacters.TWO +
@@ -83,11 +82,11 @@ describe('Test Screen: "Home"; Behavior', () => {
     fireEvent.press(keyboardNineButtonElement);
 
     const viewFinderValueElement: ReactTestInstance = getByText(
-      calculationResultExpressionWithAllAvailableNumbers,
+      calculationExpressionWithAllAvailableNumbers,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
-      calculationResultExpressionWithAllAvailableNumbers,
+    expect(viewFinderValueElement.children.at(0)).toEqual(
+      calculationExpressionWithAllAvailableNumbers,
     );
 
     const keyboardCleanButtonElement: ReactTestInstance = getByText(
@@ -100,7 +99,7 @@ describe('Test Screen: "Home"; Behavior', () => {
   test("Test If All Operators Buttons Are Adding Symbols On Viewfinder Value Element Correctly", () => {
     const { getByText } = ReactRenderAdapter.render(<HomeScreen />);
 
-    const calculationResultExpressionWithAllAvailableOperators: string =
+    const calculationExpressionWithAllAvailableOperators: string =
       UiCalculatorCharacters.DIVISION +
       UiCalculatorCharacters.MULTIPLICATION +
       UiCalculatorCharacters.SUBTRACTION +
@@ -125,11 +124,11 @@ describe('Test Screen: "Home"; Behavior', () => {
     fireEvent.press(keyboardAdditionButtonElement);
 
     const viewFinderValueElement: ReactTestInstance = getByText(
-      calculationResultExpressionWithAllAvailableOperators,
+      calculationExpressionWithAllAvailableOperators,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
-      calculationResultExpressionWithAllAvailableOperators,
+    expect(viewFinderValueElement.children.at(0)).toEqual(
+      calculationExpressionWithAllAvailableOperators,
     );
 
     const keyboardCleanButtonElement: ReactTestInstance = getByText(
@@ -144,7 +143,7 @@ describe('Test Screen: "Home"; Behavior', () => {
       <HomeScreen />,
     );
 
-    const calculationResultExpressionWithAllAvailableSymbols: string =
+    const calculationExpressionWithAllAvailableSymbols: string =
       UiCalculatorCharacters.POINT;
 
     const keyboardPointButtonElement: ReactTestInstance = getByText(
@@ -157,8 +156,8 @@ describe('Test Screen: "Home"; Behavior', () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
-      calculationResultExpressionWithAllAvailableSymbols,
+    expect(viewFinderValueElement.children.at(0)).toEqual(
+      calculationExpressionWithAllAvailableSymbols,
     );
 
     const keyboardCleanButtonElement: ReactTestInstance = getByText(
@@ -188,7 +187,7 @@ describe('Test Screen: "Home"; Behavior', () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toBeFalsy();
+    expect(viewFinderValueElement.children.at(0)).toBeFalsy();
   });
 
   test("Test If Button Backspace Is Removing Last Viewfinder Value Character Correctly", () => {
@@ -211,7 +210,7 @@ describe('Test Screen: "Home"; Behavior', () => {
       VIEWFINDER_VALUE_ELEMENT_TEST_ID,
     );
 
-    expect(viewFinderValueElement.children.at(ARRAY_FIRST_INDEX)).toEqual(
+    expect(viewFinderValueElement.children.at(0)).toEqual(
       UiCalculatorCharacters.ONE,
     );
 

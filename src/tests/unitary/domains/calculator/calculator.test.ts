@@ -5,7 +5,6 @@ import CalculationExpression from "../../../../domains/calculator/calculation_ex
 import CalculationExpressionRegister from "../../../../domains/calculator/calculation_expression_register";
 import CalculationExpressionActiveRecordDecorator from "../../../../domains/calculator/calculation_expression_active_record_decorator";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
 describe('Test Class "Calculator" Behavior Correctly', () => {
   let calculator: Calculator;
@@ -13,7 +12,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
 
   beforeAll(() => {
     const calculationExpression: CalculationExpression =
-      new CalculationExpression(EMPTY_STRING);
+      new CalculationExpression("");
     const calculationExpressionRegister: CalculationExpressionRegister =
       new CalculationExpressionRegister(calculationExpression);
     calculationExpressionActiveRecord =
@@ -77,7 +76,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     const currentCalculationExpression =
       calculationExpressionActiveRecord.getCalculationExpression();
 
-    expect(currentCalculationExpression).toEqual(EMPTY_STRING);
+    expect(currentCalculationExpression).toEqual("");
   });
 
   test('Test If Method "evaluate" Evaluates Calculation Expression Correctly', () => {

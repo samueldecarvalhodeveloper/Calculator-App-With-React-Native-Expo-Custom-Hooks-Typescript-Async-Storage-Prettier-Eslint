@@ -5,6 +5,8 @@ import ReactRenderAdapter from "../../../concerns/react_render_adapter";
 import {
   ACTION_BAR_ELEMENT_TEST_ID,
   ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID,
+  ENGLISH_ACTION_BAR_ELEMENT_ACCESSIBILITY_LABEL,
+  ENGLISH_THEME_TOGGLE_BUTTON_ELEMENT_ACCESSIBILITY_LABEL,
   SUN_ICON_NAME,
 } from "../../../../constants/screens/home_screen_constants";
 import PrimaryColors from "../../../../assets/colors/primary_colors";
@@ -19,6 +21,12 @@ describe('Test Component: "ActionBar"; Behavior', () => {
 
     const { getByTestId } = ReactRenderAdapter.render(
       <ActionBar
+        elementAccessibilityLabel={
+          ENGLISH_ACTION_BAR_ELEMENT_ACCESSIBILITY_LABEL
+        }
+        toggleThemeButtonAccessibilityLabel={
+          ENGLISH_THEME_TOGGLE_BUTTON_ELEMENT_ACCESSIBILITY_LABEL
+        }
         toggleThemeButtonTestID={ACTION_BAR_TOGGLE_THEME_BUTTON_ELEMENT_TEST_ID}
         testID={ACTION_BAR_ELEMENT_TEST_ID}
         icon={SUN_ICON_NAME}

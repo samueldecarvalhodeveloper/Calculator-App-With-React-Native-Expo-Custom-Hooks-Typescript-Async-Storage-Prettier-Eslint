@@ -1,16 +1,15 @@
 import { describe, test, expect } from "@jest/globals";
 import CalculationExpression from "../../../../domains/calculator/calculation_expression";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
-import { EMPTY_STRING } from "../../../../constants/strings_utilities_constants";
 
 describe('Test Class "CalculationExpression" Behavior', () => {
   test("Test How Calculation Expression Should be Used On Client Correctly", () => {
-    const calculationExpression = new CalculationExpression(EMPTY_STRING);
+    const calculationExpression = new CalculationExpression("");
 
     const initialCalculationExpression =
       calculationExpression.getCalculationExpression();
 
-    expect(initialCalculationExpression).toEqual(EMPTY_STRING);
+    expect(initialCalculationExpression).toEqual("");
 
     calculationExpression.setCalculationExpression(
       CalculatorCharacters.ONE +
