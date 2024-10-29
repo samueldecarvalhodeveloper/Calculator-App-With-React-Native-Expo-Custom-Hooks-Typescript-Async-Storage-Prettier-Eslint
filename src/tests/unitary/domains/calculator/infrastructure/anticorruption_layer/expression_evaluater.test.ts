@@ -3,7 +3,7 @@ import CalculatorCharacters from "../../../../../../domains/calculator/calculato
 import ExpressionEvaluater from "../../../../../../domains/calculator/infrastructure/anticorruption_layer/expression_evaluater";
 import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../../../constants/domains/calculator/calculation_expression_messages_constants";
 
-describe('Test Class "ExpressionEvaluater" Behavior', () => {
+describe('Test Class: "ExpressionEvaluater" Behavior', () => {
   test('Test If Method "getEvaluatedExpression" Returns Evaluated Expression ', () => {
     const evaluatedExpression: string =
       ExpressionEvaluater.getEvaluatedExpression(

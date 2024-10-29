@@ -3,7 +3,7 @@ import CalculationExpression from "../../../../domains/calculator/calculation_ex
 import CalculationExpressionRegister from "../../../../domains/calculator/calculation_expression_register";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
 
-describe('Test Class "CalculationExpressionRegister" Behavior', () => {
+describe('Test Class: "CalculationExpressionRegister"; Behavior', () => {
   let calculationExpression: CalculationExpression;
   let calculationExpressionRegister: CalculationExpressionRegister;
 
@@ -18,7 +18,7 @@ describe('Test Class "CalculationExpressionRegister" Behavior', () => {
     calculationExpression.setCalculationExpression("");
   });
 
-  test('Test If Method "getCalculationExpression" Returns Current Calculation Expression Correctly', () => {
+  test('Test If Method: "getCalculationExpression"; Returns Current Calculation Expression Correctly', () => {
     calculationExpression.setCalculationExpression(
       CalculatorCharacters.ONE +
         CalculatorCharacters.ADDITION +
@@ -35,7 +35,7 @@ describe('Test Class "CalculationExpressionRegister" Behavior', () => {
     );
   });
 
-  test('Test If Method "setCalculationExpression" Sets Calculation Expression Correctly', () => {
+  test('Test If Method: "setCalculationExpression"; Sets Calculation Expression Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       CalculatorCharacters.ONE +
         CalculatorCharacters.ADDITION +
@@ -52,7 +52,7 @@ describe('Test Class "CalculationExpressionRegister" Behavior', () => {
     );
   });
 
-  test('Test If Method "addCharacterToCalculationExpression" Adds Chose Character To Calculation Expression Correctly', () => {
+  test('Test If Method: "addCharacterToCalculationExpression"; Adds Chose Character To Calculation Expression Correctly', () => {
     calculationExpressionRegister.addCharacterToCalculationExpression(
       CalculatorCharacters.ONE,
     );

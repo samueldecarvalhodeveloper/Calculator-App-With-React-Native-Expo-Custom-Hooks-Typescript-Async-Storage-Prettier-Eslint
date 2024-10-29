@@ -6,7 +6,7 @@ import CalculationExpressionRegister from "../../../../domains/calculator/calcul
 import CalculationExpressionActiveRecordDecorator from "../../../../domains/calculator/calculation_expression_active_record_decorator";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
 
-describe('Test Class "Calculator" Behavior Correctly', () => {
+describe('Test Class: "Calculator"; Behavior', () => {
   let calculator: Calculator;
   let calculationExpressionActiveRecord: CalculationExpressionActiveRecord;
 
@@ -27,9 +27,9 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     calculationExpressionActiveRecord.turnCalculationExpressionEmpty();
   });
 
-  test('Test If Method "getExpression" Returns Current Calculation Expression Correctly', () => {
+  test('Test If Method: "getExpression"; Returns Current Calculation Expression Correctly', () => {
     const currentCalculationExpressionFromCalculationExpressionActiveRecord =
-      calculator.getExpression();
+      calculationExpressionActiveRecord.getCalculationExpression();
     const currentCalculationExpressionFromCalculator =
       calculator.getExpression();
 
@@ -38,7 +38,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     );
   });
 
-  test('Test If Method "addCharacter" Adds Chose Character On Calculation Expression Correctly', () => {
+  test('Test If Method: "addCharacter"; Adds Chose Character On Calculation Expression Correctly', () => {
     calculator.addCharacter(CalculatorCharacters.ONE);
 
     const currentCalculationExpression =
@@ -47,7 +47,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     expect(currentCalculationExpression).toEqual(CalculatorCharacters.ONE);
   });
 
-  test('Test If Method "backspace" Removes Last Character Of Calculation Expression Correctly', () => {
+  test('Test If Method: "backspace"; Removes Last Character Of Calculation Expression Correctly', () => {
     calculationExpressionActiveRecord.addCharacterToCalculationExpression(
       CalculatorCharacters.ONE,
     );
@@ -63,7 +63,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     expect(currentCalculationExpression).toEqual(CalculatorCharacters.ONE);
   });
 
-  test('Test If Method "clean" Removes All Character From Calculation Expression Correctly', () => {
+  test('Test If Method: "clean"; Removes All Character From Calculation Expression Correctly', () => {
     calculationExpressionActiveRecord.addCharacterToCalculationExpression(
       CalculatorCharacters.ONE,
     );
@@ -79,7 +79,7 @@ describe('Test Class "Calculator" Behavior Correctly', () => {
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "evaluate" Evaluates Calculation Expression Correctly', () => {
+  test('Test If Method: "evaluate"; Evaluates Calculation Expression Correctly', () => {
     calculationExpressionActiveRecord.addCharacterToCalculationExpression(
       CalculatorCharacters.ONE,
     );

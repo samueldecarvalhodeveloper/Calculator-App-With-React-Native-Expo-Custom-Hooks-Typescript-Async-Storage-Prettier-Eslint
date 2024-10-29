@@ -4,15 +4,36 @@ import {
   LAST_CALCULATION_KEY,
   LAST_CALCULATION_VALUE,
 } from "../constants/key_value_store_constants";
+import KeyValueDatabase from "../../domains/key_value_store/infrastructure/anticorruption_layer/key_value_database";
+import StoreDataEntity from "../../domains/key_value_store/infrastructure/entities/store_data_entity";
+import StoreDataEntityFactory from "../../domains/key_value_store/store_data_entity_factory";
+import { StoreValue } from "../../domains/key_value_store/infrastructure/environment/typescript/types";
+import KeyValueDatabaseActiveRecord from "../../domains/key_value_store/key_value_database_active_record";
 
 describe('Test Component: "KeyValueStore"; Behavior', () => {
-  test("Test If Component Handles Data Input And Output Scenario Correctly", async () => {
+  test('Test Storing Item In Key Value Database Correctly', async () => {
+    const storeDataToBeStored: StoreDataEntity =
+      StoreDataEntityFactory.getInstance(LAST_CALCULATION_VALUE);
+    const stringifiedDataToBeStored: string =
+      JSON.stringify(storeDataToBeStored);
+
     await KeyValueStore.setItem(LAST_CALCULATION_KEY, LAST_CALCULATION_VALUE);
 
-    const storedValue: string = (await KeyValueStore.getItem(
-      LAST_CALCULATION_KEY,
-    )) as string;
+    const stringifiedDataFromDatabase: string =
+      await KeyValueDatabase.getSelectedKeyData(LAST_CALCULATION_KEY);
 
-    expect(storedValue).toEqual(LAST_CALCULATION_VALUE);
+    expect(stringifiedDataFromDatabase).toEqual(stringifiedDataToBeStored);
+  });
+
+  test('Test Getting Item Data From Key Value Database Correctly', async () => {
+    await KeyValueDatabaseActiveRecord.setItem(
+      LAST_CALCULATION_KEY,
+      LAST_CALCULATION_VALUE,
+    );
+
+    const dataFromKeyValueDatabase: StoreValue =
+      await KeyValueStore.getItem(LAST_CALCULATION_KEY);
+
+    expect(dataFromKeyValueDatabase).toEqual(LAST_CALCULATION_VALUE);
   });
 });

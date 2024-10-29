@@ -2,7 +2,7 @@ import { describe, test, expect } from "@jest/globals";
 import CalculationExpression from "../../../../domains/calculator/calculation_expression";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
 
-describe('Test Class "CalculationExpression" Behavior', () => {
+describe('Test Class: "CalculationExpression"; Behavior', () => {
   test("Test How Calculation Expression Should be Used On Client Correctly", () => {
     const calculationExpression = new CalculationExpression("");
 

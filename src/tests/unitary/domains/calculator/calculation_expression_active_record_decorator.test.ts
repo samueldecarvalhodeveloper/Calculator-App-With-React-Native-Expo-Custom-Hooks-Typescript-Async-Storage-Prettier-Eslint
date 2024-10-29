@@ -5,7 +5,7 @@ import CalculationExpressionRegister from "../../../../domains/calculator/calcul
 import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../constants/domains/calculator/calculation_expression_messages_constants";
 import CalculatorCharacters from "../../../../domains/calculator/calculator_characters";
 
-describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () => {
+describe('Test Class: "CalculationExpressionActiveRecordDecorator"; Behavior', () => {
   let calculationExpressionRegister: CalculationExpressionRegister;
   let calculationExpressionActiveRecordDecorator: CalculationExpressionActiveRecordDecorator;
 
@@ -24,7 +24,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     calculationExpressionRegister.setCalculationExpression("");
   });
 
-  test('Test If Method "addCharacterToCalculationExpression" Turns Expression Empty If Expression Is Equal To Not Valid Expression Exception Message Correctly', () => {
+  test('Test If Method: "addCharacterToCalculationExpression"; Turns Expression Empty If Expression Is Equal To Not Valid Expression Exception Message Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       NOT_VALID_EXPRESSION_ERROR_MESSAGE,
     );
@@ -39,7 +39,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "addCharacterToCalculationExpression" Turns Expression Empty If Expression Is Equal To Infinity Correctly', () => {
+  test('Test If Method: "addCharacterToCalculationExpression"; Turns Expression Empty If Expression Is Equal To Infinity Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(Infinity.toString());
 
     calculationExpressionActiveRecordDecorator.addCharacterToCalculationExpression(
@@ -52,7 +52,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "addCharacterToCalculationExpression" Add Chose Character Correctly', () => {
+  test('Test If Method: "addCharacterToCalculationExpression"; Add Chose Character Correctly', () => {
     calculationExpressionActiveRecordDecorator.addCharacterToCalculationExpression(
       CalculatorCharacters.ONE,
     );
@@ -63,7 +63,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual(CalculatorCharacters.ONE);
   });
 
-  test('Test If Method "removeLastCharacterFromCalculationExpression" Turns Expression Empty If It Is Equal To Not Valid Expression Exception Message Correctly', () => {
+  test('Test If Method: "removeLastCharacterFromCalculationExpression"; Turns Expression Empty If It Is Equal To Not Valid Expression Exception Message Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       NOT_VALID_EXPRESSION_ERROR_MESSAGE,
     );
@@ -76,7 +76,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "removeLastCharacterFromCalculationExpression" Turns Expression Empty If It Is Equal To Infinity Correctly', () => {
+  test('Test If Method: "removeLastCharacterFromCalculationExpression"; Turns Expression Empty If It Is Equal To Infinity Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(Infinity.toString());
 
     calculationExpressionActiveRecordDecorator.removeLastCharacterFromCalculationExpression();
@@ -87,7 +87,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "removeLastCharacterFromCalculationExpression" Keeps Expression Empty If It Is Empty Correctly', () => {
+  test('Test If Method: "removeLastCharacterFromCalculationExpression"; Keeps Expression Empty If It Is Empty Correctly', () => {
     calculationExpressionActiveRecordDecorator.removeLastCharacterFromCalculationExpression();
 
     const currentCalculationExpression =
@@ -96,7 +96,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "removeLastCharacterFromCalculationExpression" Removes Last Character From Expression Correctly', () => {
+  test('Test If Method: "removeLastCharacterFromCalculationExpression"; Removes Last Character From Expression Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       CalculatorCharacters.ONE +
         CalculatorCharacters.ADDITION +
@@ -113,7 +113,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     );
   });
 
-  test('Test If Method "evaluateCalculationExpression" Turns Expression Empty If It Is Equal To Not Valid Expression Exception Message Correctly', () => {
+  test('Test If Method: "evaluateCalculationExpression"; Turns Expression Empty If It Is Equal To Not Valid Expression Exception Message Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       NOT_VALID_EXPRESSION_ERROR_MESSAGE,
     );
@@ -126,7 +126,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "evaluateCalculationExpression" Turns Expression Empty If It Is Equal To Infinity Correctly', () => {
+  test('Test If Method: "evaluateCalculationExpression"; Turns Expression Empty If It Is Equal To Infinity Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(Infinity.toString());
 
     calculationExpressionActiveRecordDecorator.evaluateCalculationExpression();
@@ -137,7 +137,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "evaluateCalculationExpression" Keeps Expression Empty If Expression Is Already Empty Correctly', () => {
+  test('Test If Method: "evaluateCalculationExpression"; Keeps Expression Empty If Expression Is Already Empty Correctly', () => {
     calculationExpressionActiveRecordDecorator.evaluateCalculationExpression();
 
     const currentCalculationExpression =
@@ -146,7 +146,7 @@ describe('Test Class "CalculationExpressionActiveRecordDecorator" Behavior', () 
     expect(currentCalculationExpression).toEqual("");
   });
 
-  test('Test If Method "evaluateCalculationExpression" Evaluates Expression Correctly', () => {
+  test('Test If Method: "evaluateCalculationExpression"; Evaluates Expression Correctly', () => {
     calculationExpressionRegister.setCalculationExpression(
       CalculatorCharacters.ONE +
         CalculatorCharacters.ADDITION +
