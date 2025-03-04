@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./src/screens/home/home_screen";
-import Routers from "./src/routers/routers";
+import Routes from "./src/routes/routes";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -10,7 +10,7 @@ function App(): JSX.Element {
     <NavigationContainer>
       <Navigator>
         <Screen
-          name={Routers.HOME}
+          name={Routes.HOME}
           component={HomeScreen}
           options={{
             headerShown: false,

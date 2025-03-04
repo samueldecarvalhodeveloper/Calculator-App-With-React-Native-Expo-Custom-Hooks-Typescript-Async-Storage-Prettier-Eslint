@@ -3,8 +3,8 @@
 
 import { HOME_ROUTER } from "../constants/ui_constants";
 
-enum Routers {
+enum Routes {
   HOME = HOME_ROUTER,
 }
 
-export default Routers;
+export default Routes;
