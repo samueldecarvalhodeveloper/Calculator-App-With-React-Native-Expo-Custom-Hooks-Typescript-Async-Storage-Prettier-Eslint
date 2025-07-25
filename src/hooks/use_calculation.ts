@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CalculatorCharacters from "../domains/calculator/calculator_characters";
 import CalculationExpressionUpdateAdapter from "../calculation_expression_update_adapter/calculation_expression_update_adapter";
 import Languages from "../ui_languages_specific_constants.ts/languages";
@@ -19,11 +19,18 @@ function useCalculation(): {
   clean: () => void;
   evaluate: () => void;
 } {
-  const calculator: Calculator = CalculatorFactory.getInstance("");
-  const deviceLanguage: Languages =
-    DeviceLanguageRecuperator.getDeviceLanguage();
-  const { NOT_VALID_EXPRESSION_ERROR_MESSAGE } =
-    LanguageFactory.getInstance(deviceLanguage);
+  const calculator: Calculator = useMemo(
+    () => CalculatorFactory.getInstance(""),
+    [],
+  );
+  const deviceLanguage: Languages = useMemo(
+    () => DeviceLanguageRecuperator.getDeviceLanguage(),
+    [],
+  );
+  const { NOT_VALID_EXPRESSION_ERROR_MESSAGE } = useMemo(
+    () => LanguageFactory.getInstance(deviceLanguage),
+    [],
+  );
   const [calculationExpression, setCalculationExpression] = useState("");
 
   useEffect(() => {
@@ -47,11 +54,7 @@ function useCalculation(): {
         }
       })
       .catch(() => {});
-  }, [
-    deviceLanguage,
-    NOT_VALID_EXPRESSION_ERROR_MESSAGE,
-    calculationExpression,
-  ]);
+  }, []);
 
   return {
     calculationExpression,

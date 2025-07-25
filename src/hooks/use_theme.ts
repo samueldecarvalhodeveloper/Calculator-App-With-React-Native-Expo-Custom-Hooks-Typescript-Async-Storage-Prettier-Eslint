@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Themes from "../assets/themes";
 import DeviceThemeRecuperator from "../device_theme_recuperator/device_theme_recuperator";
 import ThemeStore from "../theme_store/theme_store";
@@ -6,8 +6,14 @@ import ThemeStoreFactory from "../theme_store/theme_store_factory";
 import { isCurrentThemeDark } from "../infrastructure/specifications/ui_specifications";
 
 function useTheme() {
-  const themeStore: ThemeStore = ThemeStoreFactory.getInstance();
-  const deviceTheme: Themes = DeviceThemeRecuperator.getDeviceTheme();
+  const themeStore: ThemeStore = useMemo(
+    () => ThemeStoreFactory.getInstance(),
+    [],
+  );
+  const deviceTheme: Themes = useMemo(
+    () => DeviceThemeRecuperator.getDeviceTheme(),
+    [],
+  );
   const [theme, setTheme] = useState(deviceTheme);
 
   useEffect(() => {
@@ -17,7 +23,7 @@ function useTheme() {
         setTheme(storedTheme);
       })
       .catch(() => {});
-  }, [themeStore, deviceTheme, theme, setTheme]);
+  }, []);
 
   return {
     theme,
