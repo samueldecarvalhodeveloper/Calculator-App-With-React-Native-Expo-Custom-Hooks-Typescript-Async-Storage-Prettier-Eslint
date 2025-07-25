@@ -12,7 +12,7 @@ module.exports = {
     ecmaVersion: 14,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "react-compiler"],
   rules: {
     "react/react-in-jsx-scope": 0,
     "import/extensions": 0,
@@ -36,5 +36,7 @@ module.exports = {
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
     "no-useless-return": 0,
+    "func-names": 0,
+    "react-compiler/react-compiler": "error",
   },
 };

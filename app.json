@@ -7,6 +7,9 @@
     "icon": "./src/assets/imgs/app_icons/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "experiments": {
+      "reactCompiler": true
+    },
     "jsEngine": "hermes",
     "splash": {
       "image": "./src/assets/imgs/splash_screen/splash.png",
