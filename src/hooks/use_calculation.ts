@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import CalculatorCharacters from "../domains/calculator/calculator_characters";
 import CalculationExpressionUpdateAdapter from "../calculation_expression_update_adapter/calculation_expression_update_adapter";
 import Languages from "../ui_languages_specific_constants.ts/languages";
@@ -32,6 +32,43 @@ function useCalculation(): {
     [],
   );
   const [calculationExpression, setCalculationExpression] = useState("");
+  const addCharacter = useCallback((character: CalculatorCharacters) => {
+    calculator.addCharacter(character);
+
+    CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
+      setCalculationExpression,
+      calculator,
+    );
+  }, []);
+  const backspace = useCallback(() => {
+    calculator.backspace();
+
+    CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
+      setCalculationExpression,
+      calculator,
+    );
+  }, []);
+  const clean = useCallback(() => {
+    calculator.clean();
+
+    CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
+      setCalculationExpression,
+      calculator,
+    );
+  }, []);
+  const evaluate = useCallback(() => {
+    calculator.evaluate();
+
+    const currentCalculationExpression: string = calculator.getExpression();
+
+    LastSessionCalculationExpressionStore.updateExpression(
+      currentCalculationExpression,
+    );
+
+    isCalculateExpressionNotValidExpressionMessage(currentCalculationExpression)
+      ? setCalculationExpression(NOT_VALID_EXPRESSION_ERROR_MESSAGE)
+      : setCalculationExpression(currentCalculationExpression);
+  }, []);
 
   useEffect(() => {
     LastSessionCalculationExpressionStore.getExpression()
@@ -56,52 +93,16 @@ function useCalculation(): {
       .catch(() => {});
   }, []);
 
-  return {
-    calculationExpression,
-
-    addCharacter: (character: CalculatorCharacters) => {
-      calculator.addCharacter(character);
-
-      CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
-        setCalculationExpression,
-        calculator,
-      );
-    },
-
-    backspace: () => {
-      calculator.backspace();
-
-      CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
-        setCalculationExpression,
-        calculator,
-      );
-    },
-
-    clean: () => {
-      calculator.clean();
-
-      CalculationExpressionUpdateAdapter.updateCalculationExpressionOnKeyValueDatabaseAndUi(
-        setCalculationExpression,
-        calculator,
-      );
-    },
-
-    evaluate: () => {
-      calculator.evaluate();
-
-      const currentCalculationExpression: string = calculator.getExpression();
-
-      LastSessionCalculationExpressionStore.updateExpression(
-        currentCalculationExpression,
-      );
-
-      isCalculateExpressionNotValidExpressionMessage(
-        currentCalculationExpression,
-      )
-        ? setCalculationExpression(NOT_VALID_EXPRESSION_ERROR_MESSAGE)
-        : setCalculationExpression(currentCalculationExpression);
-    },
-  };
+  return useMemo(
+    () => ({
+      calculationExpression,
+      addCharacter,
+      backspace,
+      clean,
+      evaluate,
+    }),
+    [calculationExpression],
+  );
 }
 
 export default useCalculation;

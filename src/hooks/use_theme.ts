@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Themes from "../assets/themes";
 import DeviceThemeRecuperator from "../device_theme_recuperator/device_theme_recuperator";
 import ThemeStore from "../theme_store/theme_store";
@@ -15,6 +15,15 @@ function useTheme() {
     [],
   );
   const [theme, setTheme] = useState(deviceTheme);
+  const toggleTheme = useCallback(() => {
+    setTheme((previousTheme) => {
+      themeStore.updateTheme(
+        isCurrentThemeDark(theme) ? Themes.LIGHT : Themes.DARK,
+      );
+
+      return isCurrentThemeDark(previousTheme) ? Themes.LIGHT : Themes.DARK;
+    });
+  }, []);
 
   useEffect(() => {
     themeStore
@@ -25,19 +34,7 @@ function useTheme() {
       .catch(() => {});
   }, []);
 
-  return {
-    theme,
-
-    toggleTheme() {
-      themeStore.updateTheme(
-        isCurrentThemeDark(theme) ? Themes.LIGHT : Themes.DARK,
-      );
-
-      isCurrentThemeDark(theme)
-        ? setTheme(Themes.LIGHT)
-        : setTheme(Themes.DARK);
-    },
-  };
+  return useMemo(() => ({ theme, toggleTheme }), [theme]);
 }
 
 export default useTheme;

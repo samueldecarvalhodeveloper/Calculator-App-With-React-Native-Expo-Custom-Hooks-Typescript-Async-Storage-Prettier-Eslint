@@ -1,7 +1,10 @@
+import { useMemo } from "react";
 import { useWindowDimensions } from "react-native";
 
 function useCurrentWindowHeight(): number {
-  return useWindowDimensions().height;
+  const { height } = useWindowDimensions();
+
+  return useMemo(() => height, [height]);
 }
 
 export default useCurrentWindowHeight;
