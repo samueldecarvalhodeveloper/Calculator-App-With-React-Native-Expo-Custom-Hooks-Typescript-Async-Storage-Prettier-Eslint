@@ -1,6 +1,6 @@
 import { NOT_VALID_EXPRESSION_ERROR_MESSAGE } from "../../../../constants/domains/calculator/calculation_expression_messages_constants";
 
-class ExpressionEvaluater {
+class ExpressionEvaluator {
   private constructor() {}
 
   public static getEvaluatedExpression(expression: string): string {
@@ -12,4 +12,4 @@ class ExpressionEvaluater {
   }
 }
 
-export default ExpressionEvaluater;
+export default ExpressionEvaluator;
